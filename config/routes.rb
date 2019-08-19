@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       post "/orders/:order_id/products", to: "products#create"
 
       # limit new routes to only the ones expected above
-      resources :orders, only [:index, :create, :show, :ship]
+      resources :orders, only: [:index, :create, :show, :ship]
     end
   end
 end
