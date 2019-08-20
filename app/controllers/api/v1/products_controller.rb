@@ -20,6 +20,7 @@ module Api
 
       def create
         @order = Order.find(params[:order_id])
+
         @order_product = OrderProduct.new(order_id: @order.id, product_id: order_product_params[:product_id])
 
         if @order_product.save
@@ -32,7 +33,7 @@ module Api
       private
 
       def order_product_params
-        params.require(:product).permit(:product_id)
+        params.permit(:product_id)
       end
     end
   end
